@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('#p').click(function() {
+//					console.log($('#p').closest('.aaa').find('.qqq').html())
+					console.log($('.aaa').has($("#p")).find('.qqq').html())
+				})
+			})
+		</script>
+
+	</head>
+
+	<body>
+		<div class="aaa">
+			aaa
+			<div class="bbb">
+				bbb1
+				<div class="bbb">
+					bbb2
+					<div class="ccc">
+						<p id="p">123</p>
+					</div>
+				</div>
+			</div>
+			<div class="qqq">
+				qqq
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/styles_https.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/base.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/theme.min.css" />
+		<script src="../js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="../js/register.js" ></script>
+		<script type="text/javascript" src="../js/login.js"></script>
+		
+		 
+	</head>
+
+	<body class="passport-page">
+		<div class="topbar">
+			<div class="page-rs">
+				<div class="login-bar">
+					<span id="loginBar_435" style="display: block;">
+    <span>
+                欢迎光临莎莎网！
+    </span>
+					<a href="" style="margin-left:10px;">登录</a>
+					<span class="dividing">或</span>
+					<a href="">免费注册</a>
+					</span>
+
+					<span id="memberBar_435" style="display:none">
+    				<span>
+       						 您好！<span id="uname_435"></span>
+					</span>
+					<span class="syew" style="display:none;"><i class="iconfont"></i>VIP </span>
+					<span class="point" style="color:#cb9966;"><b>0</b> 积分</span>
+					<a href="/passport-logout.html">退出</a>
+					</span>
+
+				</div>
+				<div class="member-link">
+					<ul>
+						<li class="noline">
+							<div class="member-linktext" id="mem_h4_526">
+								<a rel="nofollow" href="/account/login">
+									我的账户<i class="iconfont ijt"></i></a>
+							</div>
+
+							<dl id="mem_dl_526" style="display: none;">
+								<dd>
+									<a href="" rel="nofollow">我的订单</a>
+								</dd>
+								<dd>
+									<a href="" rel="nofollow">我的积分</a>
+								</dd>
+								<dd>
+									<a href="" rel="nofollow">我的优惠券</a>
+								</dd>
+								<dd>
+									<a href="" rel="nofollow">我的收藏</a>
+								</dd>
+								<dd>
+									<a href="" rel="nofollow">我的评价</a>
+								</dd>
+							</dl>
+
+						</li>
+						<li class="noline">
+							<div id="minicart_530" class="member-linktext">
+								<div class="js_minicart-title tc">
+									<a href="/basket"><i class="iconfont"></i>我的购物车</a>
+								</div>
+								<div class="MiniCarDetail minicart-cont-rs" style="visibility: hidden; display: block;">
+									<img class="loading" src="" height="32" width="32">
+								</div>
+							</div>
+
+						</li>
+						<li class="noline">
+							<div class="member-linktext">
+								<a href="" rel="nofollow">
+									我的收藏
+								</a>
+							</div>
+						</li>
+						<li class="noline">
+							<div class="member-linktext" id="index_mymessage">
+								<a rel="nofollow" href="">我的站內信</a>
+							</div>
+						</li>
+						<li class="noline">
+							<div class="member-linktext">
+								<a href="" type="url" target="_blank" rel="nofollow">积分中心</a>
+							</div>
+						</li>
+						<li class="noline">
+							<div class="member-linktext">
+							</div>
+						</li>
+						<li class="noline">
+							<div class="member_attention_2" id="us_h4_531">
+								<a rel="nofollow" href="#">关注我们 </a>
+								<a rel="nofollow" class="member_attention_2_item" id="member_attention_2_item_1471405899183" href="" target="_blank" data-tab="1471405899183"><img src="https://www.sasa.com/public/images/95/1e/2d/1258dcb67b800b6af51b965e93125631a0fe6e1e.png?1474447501#w" alt="" height="15" width="17"></a>
+								<a rel="nofollow" class="member_attention_2_item" id="member_attention_2_item_1471408067091"   href="" target="_blank" data-tab="1471408067091"><img src="https://www.sasa.com/public/images/c4/63/a9/db683af04c592c78e284bfb777f3b705bff4493a.png?1474447527#w" alt="" height="14" width="17"></a>
+								<div class="member_attention_2_qr" id="member_attention_2_qr_1471405899183"   style="display: none;"><img src="" alt="" width="100px" height="100px"></div>
+								<div class="member_attention_2_qr" id="member_attention_2_qr_1471408067091"   style="display: none;"><img src="" alt="" width="100px" height="100px"></div>
+							</div>
+
+						</li>
+						<li class="noline"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="header-main">
+			<div class="page">
+				<div class="sotelogo">
+					<a href="">
+						<img alt="Ecstore-demo" src="img/login-logo.png" border="0">
+					</a>
+				</div>
+			</div>
+		</div>
+<!------------------------------------------------登录------------------------------------------>
+		<div class="page">
+			<div class="signin-page-wrap clb" style="background-image:url(img/login.jpg)">
+				<div id="page_signin" class="signupin-content signin fr">
+					<div class="sign-title">
+						<div class="sign-title-text">
+							用户登录
+							<span class="fr">还没有莎莎账号？<a href="">立即注册</a></span>
+						</div>
+					</div>
+					<div class="signupbox">
+						<!--<form action="" method="">-->
+							<ul>
+								<li class="form-item">
+									<label for="" class="form-label">邮箱/手机：</label>
+									<span class="form-act">
+										<input class="x-input icon-yhm action-account-check " type="text" name="uname" id="username" value="" placeholder="邮箱/手机" data-caution="请填写邮箱/手机" ></span>
+								</li>
+								<li class="form-item">
+									<label for="" class="form-label">密码：</label>
+									<span class="form-act">
+										<input class="x-input icon-mm" type="password" name="password" maxlength="16" id="password" placeholder="填写密码" vtype="required" data-caution="请填写密码"></span>
+								</li>
+								<li class="form-item action-verifycode hide">
+									<label for="" class="form-label">验证码：</label>
+									<span class="form-act">
+        							<input class="x-input verify-input img_input" type="text" name="verifycode" placeholder="填写图片验证码" data-caution="请正确填写图片验证码" id="dom_el_e9b2b02" maxlength="4" autocomplete="off"> 
+        							<img src="" alt="验证码" title="点击更换验证码" class="verify-code auto-change-verify-handle"> 
+        								<a href="" class="verify-code auto-change-verify-handle">看不清?换一张</a></span>
+								</li>
+								<li class="form-item action-need-verify" style="display:none;">
+									<label for="" class="form-label">验证码：</label>
+									<span class="form-act">
+        							<input class="x-input verify-input" type="text" name="mobileVcode" id="dom_el_e9b2b03" placeholder="填写验证码"> 
+        								<a href="" class="btn btn-caution action-get-verifycode">
+        								<span><span>获取短信验证码</span></span>
+									</a>
+									</span>
+								</li>
+								<li class="form-item">
+									<label for="" class="form-label"></label>
+									<span class="form-act">
+       									 <input type="hidden" name="is_remember" id="for_remember" class="x-check action-remember-account" checked="checked">
+        								<input type="checkbox" name="site_autologin" id="for_auto_signin" class="x-check action-auto-signin">
+        								<label for="for_auto_signin" class="form-sub-label">记住我</label>
+										<a href="" style="vertical-align: middle; color:#ed3f7e;">忘记密码？</a>
+
+      							</span>
+								</li>
+								<li class="form-item-normal">
+									<label for="" class="form-label"></label>
+									<span class="form-act">
+        							<button type="submit" class="btn btn-major btn-big" rel="_request">
+        								<span><span>登录</span></span>
+									</button>
+									</span>
+								</li>
+							</ul>
+						<!--</form>-->
+						<div class="other-login">
+							<p>第三方账号登录</p>
+							<ul>
+								<li>
+									<a href=""><img src="img/login01.jpg">QQ登录</a>
+								</li>
+								<li>
+									<a href=""><img src="img/login02.jpg">微博登录</a>
+								</li>
+								<li>
+									<a href=""><img src="img/login03.jpg">支付宝登录</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,278 @@
+
+a{
+	text-decoration: none;
+	color: #3e3e3e;
+}
+img{
+	border: none;
+}
+body{
+	font-family:Lucida Grande,Lucida Sans Unicode,
+	Tahoma,Helvetica,Arial,Hiragino Sans GB,sans-serif;
+}
+.index-page{
+	background: #f2f2f2;
+}
+
+.advbox{
+	position: relative;
+	overflow: hidden;
+}
+
+.dt_big_close{
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	right: 100px;
+	top: 20px;
+	opacity: 0.2;
+	background: #000;
+	cursor: pointer;
+}
+.dt_big_close::before{
+	transform: rotate(-45deg);
+}
+
+.dt_big_close::before{
+	
+	content: '';
+	background: #fff;
+	height: 2px;
+	width: 11px;
+	display: block;
+	margin-top: -2px;
+	position: relative;
+	top: 12px;
+	left: 5px;
+}
+
+.dt_big_close::after{
+	transform: rotate(45deg);
+	content: '';
+	background: #fff;
+	height: 2px;
+	width: 11px;
+	display: block;
+	margin-top: -2px;
+	position: relative;
+	top: 12px;
+	left: 5px;
+}
+
+
+.dt_big{
+	overflow: hidden;
+}
+
+div{
+	display: block;
+}
+
+.dt_big img{
+	width: 100%;
+	display: block;
+}
+
+.topbar{
+	height: 32px;
+	line-height: 32px;
+	background-color: #f2f2f2;
+	font-size: 12px;
+	color: #6c6c6c;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.page-rs{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.login-bar{
+	float: left;
+}
+
+.login-bar a{
+	color: #ec3e7d;
+	text-decoration: underline;
+}
+
+.topbar .dividing{
+	width: 25px;
+	text-align: center;
+}
+.member-link{
+	float: right;
+	text-align: right;
+}
+.member-link li.noline{
+	border: none;
+}
+.member-link li{
+	display: inline-block;
+	float: left;
+	height: 32px;
+	position: relative;
+	z-index: 305;
+}
+.member-link li .member-linktext a {
+	display: block;
+	font-weight: normal;
+	padding: 0 12px;
+}
+/*.topbar a{
+	color: #6c6c6c;
+}*/
+.topbar .iconfont{
+	-webkit-text-stroke-width: .4px;
+}
+.member-link li i {
+	color: #ec3e7d;
+	margin-right: 3px;
+}
+.member-link li i.ijt{
+	font-size: 9px;
+	color: #949597;
+	margin-left: 3px;
+	
+}
+.member-link li dl dd a {
+	text-align: left;
+	line-height: 25px;
+	padding-left: 10px;
+	display: block;
+}
+.member-link li dl a{
+	color: #888;
+}
+.tc{
+	text-align:center;
+}
+
+.member-link li .member-linktext a{
+	display: block;
+	font-weight: normal;
+	padding: 0 12px;
+}
+.topbar .iconfont{
+	-webkit-text-stroke-width: 0.4px;
+}
+.member-link li i{
+	color: #ec3e7d;
+	margin-right: 3px;
+}
+.iconfont{
+	--font-family:
+	font-size: 16px;
+	font-style: normal;
+	line-height: 1;
+}
+
+.member-linktext .minicart-cont-rs{
+	width: 300px;
+	overflow: hidden;
+	background-color: white;
+	position: absolute;
+	top: 32px;
+	right: 0;
+	border: 1px solid #ddd;
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+	z-index: 1000;
+}
+.minicart-cont-rs .empty{
+	padding:10px 60px;
+	line-height: 25px;
+}
+.member-link li .member-linktext a {
+	display: block;
+	font-weight: normal;
+	padding: 0 12px;
+}
+.member_attention_2>a{
+	display: inline-block !important; 
+}
+.member_attention_2_item img{
+	display: block;
+	margin-bottom: -3px;
+	
+}
+.header-main{
+	background: #fff;
+	position: relative;
+	z-index: 300;
+}
+.header-main .page-rs{
+	position: relative;
+	height: 95px;
+}
+.sotelogo-rs{
+	height: 45px;
+	position: absolute;
+	top: 21px;
+	overflow: hidden;
+}
+.site_log_extend{
+	margin-left: 10px;
+}
+.search{
+	position: absolute;
+	left: 400px;
+	top: 21px;
+}
+.search-input{
+	background-color: #ec3e7d;
+	width: 346px;
+	height: 36px;
+	float: left;
+	position: relative;
+}
+.search-input .key {
+	border: none;
+	width: 330px;
+	height: 24px;
+	line-height: 24px;
+	padding: 3px 5px;
+	font-size: 14px;
+	position: absolute;
+	left: 3px;
+	top: 3px;
+}
+.search .submit-btn{
+	border: none;
+	color: white;
+	text-align: center;
+	background-color: #ec3e7d;
+	width: 90px;
+	height: 36px;
+	line-height: 36px;
+	float: left;
+	cursor: pointer;
+	text-shadow: none;
+	padding: 0;
+}
+.hot-keywords{
+	width: 500px;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	clear: both;
+	font-size: 12px;
+	text-align: left;
+}
+.hot-keywords.rs a{
+	color: #999;
+	border-left: 1px solid #999;
+	line-height: 14px;
+	height: 14px;
+	display: inline-block;
+	padding: 0 10px;
+	margin-left: -10px;
+	margin-right: 10px;
+}
+.topright{
+	width: 130px;
+}
+.app-adv-bar{
+	margin-top: 20px;
+	overflow: hidden;
+	float: right;
+}

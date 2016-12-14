@@ -1,0 +1,51 @@
+{
+	"goods": [		
+
+	
+
+		{
+			"index":0,
+			"imgsmall": "../img/left-tag.png",
+			"imgmiddle": "../img/icountry.png",
+			"imgbig": "../img/goodslist-1-big.jpg",
+			"country":"日本品牌",
+			"count": "4.7折",
+			"price": "28.0",
+			"dis": "￥59.0",
+			"des02": "高丝",
+			"des03": "softymo   美白保湿卸妆洁面乳",
+			"des04": "190克",
+	        "reducedprice":"直降"
+		},
+		{
+			"index":1,
+			"imgsmall": "../img/left-tag.png",
+			"imgmiddle": "../img/icountry.png",
+			"imgbig": "../img/goodslist-2-big.jpg",
+			"country":"日本品牌",
+			"count": "5.1折",
+			"price": "30.0",
+			"dis": "￥59.0",
+			"des02": "高丝",
+			"des03": "透明质酸洁面泡沫",
+			"des04": "190克",
+	        "reducedprice":"直降"
+		},
+		{
+			"index":2,
+			"imgsmall": "../img/left-tag.png",
+			"imgmiddle": "../img/icountry.png",
+			"imgbig": "../img/goodslist-3-big.jpg",
+			"country":"日本品牌",
+			"count": "5.1折",
+			"price": "191.0",
+			"dis": "￥580.0",
+			"des02": "Sofina",
+			"des03": "保湿泡泡洁面乳",
+			"des04": "190克",
+	        "reducedprice":"直降"
+		}
+	]
+}
+
+

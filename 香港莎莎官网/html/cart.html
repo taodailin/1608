@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>购物车</title>
+		<link rel="stylesheet" href="css/cart.css" />
+		<script type="text/javascript" src="../js/jquery-1.12.3.js"></script>
+		<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="../js/cart.js"></script>
+		<script>
+			$(function() {
+				load(function() {
+					myfunction();
+				})
+
+				function load(fn) {
+
+					var strCookie = $.cookie("good");
+					//				console.log(strCookie);
+					if(strCookie == undefined || strCookie == "") {
+						alert("没有购买产品!");
+					} else {
+						//刷新列表
+						
+						var sum = 0;
+						var num = 0;
+						var oCookie = JSON.parse(strCookie);
+						console.log(oCookie);
+						$.each(oCookie, function() {
+							
+							sum += parseInt(this.goods.price)*parseInt(this.num);
+							num += parseInt(this.num);
+							var str =
+								'<tr class="on" index=' + this.goods.index + '>\
+										<td class="goods">\
+											<img src="' + this.goods.imgbig + '"/>\
+										</td>\
+										<td class="goodsname">' + this.goods.des03 + '</td>\
+										<td class="price">' + this.goods.price + '</td>\
+										<td class="count">\
+											<span class="reduce"></span>\
+											<input class="count-input" type="text" value="'+this.num+'">\
+											<span class="add">+</span>\
+										</td>\
+										<td class="subtotal">' + this.goods.price + '</td>\
+										<td class="operation">\
+											<span class="delete">删除</span>\
+										</td>\
+									</tr>';
+
+							$(".tbody").append($(str));
+							
+							
+						});
+						
+						$('#priceTotal').text(sum);
+						$('#selectedTotal').text(num);
+					}
+					$('.operation').on('click', '.delete', function(e) {
+						alert('绑定成功!');
+						//					console.log(oCookie);
+						var idex = $(this).closest('tr').attr('index');
+
+						$.each(oCookie, function(index, obj) {
+
+							console.log(typeof oCookie);
+							if(this.index == idex) {
+								oCookie.splice(index, 1);
+							}
+
+						})
+
+						$.cookie('good', JSON.stringify(oCookie), {
+							expirse: 7,
+							path: "/"
+						});
+						console.log($.cookie('good'));
+
+						$(e.target).closest('.on').remove();
+					})
+
+					fn && fn()
+
+				}
+			
+			})
+		</script>
+	</head>
+
+	<body style="background: #f5f5f5; height: 1000px;">
+		<div class="page-header"></div>
+		<table id="cartTable">
+			<thead>
+				<th>香港直送</th>
+				<th style="width:300px;">商品名称</th>
+				<th>单价</th>
+				<th style="width:40px;">数量</th>
+				<th>小计</th>
+				<th>操作</th>
+
+			</thead>
+			<tbody class="tbody">
+				<!--<tr class="on">
+					<td class="goods">
+						<img src="" />
+
+					</td>
+					<td class="goodsname">
+
+					</td>
+					<td class="price">
+
+					</td>
+					<td class="count">
+						<span class="reduce"></span>
+						<input class="count-input" type="text" value="1">
+						<span class="add">+</span>
+					</td>
+					<td class="subtotal">
+
+					</td>
+					<td class="operation">
+						<span class="delete">删除</span>
+					</td>
+				</tr>-->
+			</tbody>
+
+			<tbody>
+				<tr class="transport">
+					<td colspan="6" style="text-align:center;">
+						清单价值满<span>￥249.0</span>即免费送运
+					</td>
+				</tr>
+
+				<tr class="favorable">
+					<td>已享受的优惠</td>
+					<td colspan="5">优惠项目</td>
+				</tr>
+			</tbody>
+
+		</table>
+		<div class="foot" id="foot">
+			<a href="goodslist.html">继续购物</a>
+			<a class="fl delete" id="deleteAll" href="javascript:;">清空购物车</a>
+			<div class="fr closing">结算</div>
+			<div class="fr total">
+				合计:￥
+				<span id="priceTotal">0.00</span>
+			</div>
+			<div class="fr selected" id="selected">
+				已选商品
+				<span id="selectedTotal">0</span> 件
+			</div>
+		</div>
+
+	</body>
+
+</html>

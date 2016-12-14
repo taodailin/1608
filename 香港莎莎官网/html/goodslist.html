@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>goodslist</title>
+		<link rel="stylesheet" href="../css/base.min.css" />
+		<link rel="stylesheet" href="../css/styles.min.css" />
+		<script type="text/javascript" src="../js/jquery-1.12.3.js" ></script>
+		<script type="text/javascript" src="../js/jquery.cookie.js" ></script>
+	
+		<script>
+			$(function(){
+				var aa=location.search.replace('?','')
+				ajax(aa)
+				function ajax(add)	{	
+				$.ajax({
+					type:"get",
+					url:""+add+"",
+					async:true,
+					error:function(res){
+						alert(res);
+					},
+					success:function(res){
+						console.log(res.goods)
+
+						renderItem(res.goods)
+					}
+				});
+			}
+				//刷新页面
+				
+				function renderItem(data){
+					
+					//需要遍历data 因为在json文件当中有多个对象
+						$.each(data,function(i,elem){
+							console.log(i);
+						
+						var str = 
+							'<li class="normal">\
+							<div class="formall pro752" product_id="752" goods_id="1483">\
+								<div class="formallcont">\
+									<div class="arrivals-pic">\
+										<b>\
+											<img src="'+this.imgsmall+'">\
+										</b>\
+										<dl class="">\
+											<dd>\
+												<i class="icountry">\
+													<img src="'+this.imgmiddle+'">\
+												</i>\
+												'+this.country+'</dd>\
+										</dl>\
+										<a href="goodNews.html?goods.json&'+i+'" target="_blank">\
+											<img id="JS-goods-img-1" class="action-goods-img" alt="高丝透明质酸洁面泡沫190克" src="'+this.imgbig+'">\
+										</a>\
+									</div>\
+								<div class="sale-price">\
+									<span class="count fr">'+this.count+'</span>\
+									￥<span class="price tl">'+this.price+'</span>\
+									<span class="dis tl"><del>'+this.dis+'</del> </span>\
+								</div>\
+								<div class="arrivals-info">\
+									<div class="infoconts">\
+										<div class="des02">\
+											<a href="" target="_blank">'+this.des02+'</a>\
+										</div>\
+										<p class="des03">\
+											<a href="" target="_blank">'+this.des03+'</a>\
+										</p>\
+										<p class="des04">'+this.des04+'</p>\
+									</div>\
+									<div class="tags">\
+										<a href="javascript:void(0);" style="background:#c69a62;color:#ffffff;">'+this.reducedprice+'</a>\
+									</div>\
+								</div>\
+								<div class="btn-buy">\
+									<a href="#" index="'+this.index+'" class="btn btn-major action-addtocart" target="_dialog_minicart" rel="nofollow">\
+											<span>加入购物车</span>\
+									</a>\
+								</div>\
+								</div>\
+						</li>';
+						
+//						$('<li>123213</li>');
+//						var $li = $('<li>');
+						
+					$('.arrivalslist').append($(str))
+					//return str;			
+					})
+				
+				
+				//把产品添加到cookie当中
+				//console.log($('.arrivalslist .btn-buy a'));
+					$('.arrivalslist').on(' click','.btn-buy a',function(e){
+						
+						console.log('购买产品');
+						
+						//获取imgsmall
+						var imgsmall = $(e.target).parent().parent().siblings('.arrivals-pic').find('b').find('img').attr('src');
+	
+						var imgmiddle = $(e.target).parent().parent().siblings('.arrivals-pic').find('i').find('img').attr('src');
+	
+						var imgbig = $(e.target).parent().parent().siblings('.arrivals-pic').find('a').find('img').attr('src');
+	
+						//var country = $(e.target).parent().parent().siblings('.arrivals-pic').find('dl').find('i')[0].nextSibling.nodeValue;
+						var country = $(e.target).parent().parent().siblings('.arrivals-pic').find('dd').text();
+						
+						
+						country = $.trim(country)
+						var count = $(e.target).parent().parent().siblings('.sale-price').find('.count').html();
+						var price = $(e.target).parent().parent().siblings('.sale-price').find('.price').html();
+						var dis = $(e.target).parent().parent().siblings('.sale-price').find('.dis').find('del').html();
+						var des02 = $(e.target).parent().parent().siblings('.arrivals-info').find('.des02').find('a').html();
+						var des03 = $(e.target).parent().parent().siblings('.arrivals-info').find('.des03').find('a').html();
+						var des04 = $(e.target).parent().parent().siblings('.arrivals-info').find('.des04').html();
+						var reducedprice = $(e.target).parent().parent().siblings('.arrivals-info').find('.tags').find('a').html();
+	//					var index  = $('div').attr('index');
+//						var index = $(e.target).closest('.arrivalslist').find('.normal').attr('index');
+						var index = $(e.target).parent().attr('index');
+						console.log(index);
+						 //新的产品信息
+						//var obj = {"title":title,"price":price,"img":img};
+						
+						var obj = {
+									"index":index,
+									"imgsmall":imgsmall,
+									"imgmiddle":imgmiddle,
+									"imgbig":imgbig,
+									"country":country,
+									"count":count,
+									"price":price,
+									"dis":dis,
+									"des02":des02,
+									"des03":des03,
+									"des04":des04,
+									"reducedprice":reducedprice
+						}
+						
+						//strCookie 是存在cookie里面的产品信息
+						var strCookie = $.cookie("good");
+						
+	//					console.log(strCookie);
+						
+						var bGood = false; //代表没有产品
+						if(strCookie == undefined || strCookie == "")
+						{
+							var oCookie = [];
+							var newGood ={"index":index,goods:obj,num:1};
+							
+							oCookie.push(newGood);
+							console.log(oCookie);
+							
+							
+						}else{
+							var oCookie = JSON.parse(strCookie);
+	//						console.log(oCookie);
+	
+							$.each(oCookie,function(){
+								
+								if(this.index ==  index){
+									var num = parseInt(this.num)+1;
+									this.num = num;
+									bGood = true;
+								}
+							})
+							
+							if(bGood == false){
+								
+								var newGood = {"index":index,goods:obj,num:1};
+								oCookie.push(newGood);
+							}
+						}
+						console.log(oCookie);
+						$.cookie("good",JSON.stringify(oCookie),{expires:7 , path:"/"});
+						console.log($.cookie("good") );
+						return false;
+					})
+				}
+			})
+		</script>
+	</head>
+
+	<body class="gallery-page">
+		<div class="topbar">
+          <div class="page-rs">
+                <div class="login-bar">
+                      <span id="loginBar_435" style="display: block;">
+    <span>
+                欢迎光临莎莎网！
+    </span>
+    <a href="/account/login" style="margin-left:10px;">登录</a>
+    <span class="dividing">或</span>
+    <a href="/account/register">免费注册</a>
+</span>
+
+<span id="memberBar_435" style="display:none">
+    <span>
+        您好！<span id="uname_435"></span>
+    </span>
+    <span class="syew" style="display:none;"><i class="iconfont"></i>VIP </span>
+    <span class="point" style="color:#cb9966;"><b>0</b> 积分</span>
+    <a href="/passport-logout.html">退出</a>
+</span>
+
+                </div>
+                <div class="member-link">
+                      <ul>
+                        <li class="noline">  <div class="member-linktext" id="mem_h4_526"><a rel="nofollow" href="/account/login"><!--<i class="iconfont">&#xe654;</i>-->我的账户<i class="iconfont ijt"></i></a></div>
+  
+  <dl id="mem_dl_526" style="">
+        <dd><a href="/account/login" rel="nofollow">我的订单</a></dd>
+        <dd><a href="/account/login" rel="nofollow">我的积分</a></dd>
+        <dd><a href="/account/login" rel="nofollow">我的优惠券</a></dd>
+        <dd><a href="/account/login" rel="nofollow">我的收藏</a></dd>
+        <dd><a href="/account/login" rel="nofollow">我的评价</a></dd>
+      </dl>
+  
+  </li>
+                        <li class="noline"><div id="minicart_530" class="member-linktext">
+  <div class="js_minicart-title tc">
+    <a href="/basket"><i class="iconfont"></i>我的购物车</a>
+  </div>
+  <div class="MiniCarDetail minicart-cont-rs" style="display: block; visibility: hidden;"><div class="empty">购物车中还没有商品，<br>快去挑选心爱的商品吧</div>
+</div>
+</div>
+
+</li>
+                        <li class="noline"><div class="member-linktext">
+      <a href="/account/login" rel="nofollow">
+          <!--<i class="iconfont">&#xe66b;</i>-->我的收藏
+      </a>
+</div></li>
+                        <li class="noline"><div class="member-linktext" id="index_mymessage"><a rel="nofollow" href="/account/inbox">我的站內信</a></div>
+  </li>
+                        <li class="noline"><div class="member-linktext"><a href="https://www.sasa.com/index.php/gift-lists.html" type="url" target="_blank" rel="nofollow">积分中心</a></div></li>
+                        <li class="noline"><div class="member-linktext"><a href="http://web1.sasa.com/SasaWeb/splash.jsp?cm_re=cn_top_globalsite" type="url" target="_blank" rel="nofollow">Global site</a></div></li>
+                        <li class="noline"><div class="member_attention_2" id="us_h4_531" onmouseleave="hideAllQrCode();">
+    <a rel="nofollow" href="#">关注我们 </a>
+        <a rel="nofollow" class="member_attention_2_item" id="member_attention_2_item_1471405899183" onmouseenter="showQrCode(this);" onmouseleave="hideQrCode(this);" href="https://www.weibo.com/sasahongkong" target="_blank" data-tab="1471405899183"><img src="https://www.sasa.com/public/images/95/1e/2d/1258dcb67b800b6af51b965e93125631a0fe6e1e.png?1474447501#w" alt="" height="15" width="17"></a>
+        <a rel="nofollow" class="member_attention_2_item" id="member_attention_2_item_1471408067091" onmouseenter="showQrCode(this);" onmouseleave="hideQrCode(this);" href="https://wx.qq.com/" target="_blank" data-tab="1471408067091"><img src="https://www.sasa.com/public/images/c4/63/a9/db683af04c592c78e284bfb777f3b705bff4493a.png?1474447527#w" alt="" height="14" width="17"></a>
+            <div class="member_attention_2_qr" id="member_attention_2_qr_1471405899183" onmouseenter="keepQrCodeDisplay(this);" onmouseleave="keepQrCodeHide(this);" style="display: none;"><img src="https://www.sasa.com/public/images/60/5c/9b/072b1d0568da15dca7f2e550962c8961400d4a5b.jpg?1474447521#h" alt="" width="100px" height="100px"></div>
+                <div class="member_attention_2_qr" id="member_attention_2_qr_1471408067091" onmouseenter="keepQrCodeDisplay(this);" onmouseleave="keepQrCodeHide(this);" style="display: none;"><img src="https://www.sasa.com/public/images/e6/d4/b2/a2843e03f56f75bd4ffd265efdd2e88ecc2cb63c.jpg?1474447538#h" alt="" width="100px" height="100px"></div>
+        </div>
+
+ </li>
+                        <li class="noline"></li>
+                      </ul>
+                </div>
+          </div>
+</div>
+				<!--头部-->
+<div class="page-s" style="height: 100px;">
+    <div class="ok" style="margin-top: 20px; margin-left: 20px;">
+      <div style="float: left; ">	
+      	<a href="" target="_blank">
+		<img src="../img/index/logo.png" alt="欢迎光临莎莎网" width="170" height="42">
+		</a>
+
+		</div>
+      
+      
+      <div class="site_log_extend" style="float: left;">
+        
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <div class="search clearfix" style="margin-top: 30px;">
+      
+    <div class="search-input">
+        <input type="text" name="search_keywords" placeholder="雅诗兰黛" autocompleter="associate_autocomplete_goods:name,goods_id" ac_options="{}" class="key" value="" autocomplete="off">
+    </div>
+    <button type="submit" class="btn btn-search submit-btn">搜索</button>
+
+<div class="hot-keywords rs">
+        <a href="./search-精华.html">精华</a>
+        <a href="./search-保湿.html">保湿</a>
+        <a href="./search-面霜.html">面霜</a>
+        <a href="./search-眼霜.html">眼霜</a>
+        <a href="./search-资生堂.html">资生堂</a>
+        <a href="./search-补水.html">补水</a>
+        <a href="./search-提拉紧致.html">提拉紧致</a>
+    </div>
+
+
+    </div>
+    <div class="topright fr" id="J_topCartBar">
+      
+      <div class="app-adv-bar">
+      <!--<div class="cart-bar clearfix">-->
+        
+      </div>
+    </div>
+  </div>
+  
+  <!--商品列表-->
+  
+
+
+		<ul class="arrivalslist">
+			<!--<li class="normal">
+
+				
+				<div class="formall pro752" product_id="752" goods_id="1483">
+
+					<div class="formallcont">
+						<div class="arrivals-pic">
+							
+							<b><img src="../img/left-tag.png"></b>
+							<dl class="">
+								<dd>
+									<i class="icountry">
+										<img src="../img/icountry.png">
+									</i>
+									日本品牌</dd>
+							</dl>
+							
+							<a href="" target="_blank"><img id="JS-goods-img-1" class="action-goods-img" alt="高丝透明质酸洁面泡沫190克" src="../img/goodslist-2-big.jpg"></a>
+						</div>
+						<div class="sale-price">
+							<span class="count fr">5.1折</span>
+							<span class="price tl">￥30.0</span>
+							<span class="dis tl"><del>￥59.0</del></span>
+
+						</div>
+						<div class="arrivals-info">
+							<div class="infoconts">
+								<div class="des02">
+									<a href="" target="_blank">高丝</a>
+								</div>
+								<p class="des03">
+									<a href="" target="_blank">透明质酸洁面泡沫 </a>
+								</p>
+								<p class="des04">190克&nbsp;&nbsp;</p>
+							</div>
+							
+							<div class="tags">
+								
+								<a class='tag-a' href="javascript:void(0);" style="background:#c69a62;color:#ffffff;">直降</a>
+							</div>
+						</div>
+						
+						<div class="btn-buy">
+							<a href="" class="btn btn-major action-addtocart" target="_dialog_minicart" rel="nofollow">
+								<span class='addCart'>加入购物车</span>
+							</a>
+						</div>
+						
+					</div>
+				</div>
+			</li>-->
+			<!--$('.addCart').closest('.formallcont').find('.tag-a')-->
+		</ul>
+		
+		<a href="cart.html" class="cart" style="display:inline-block; height:40px; width: 100px; line-height: 40px; background: url(img/goodlist/cart.png) no-repeat 65px #4C4C4C; color: #fff; border-radius: 50%;">亲,购物吧!</a>
+		
+	</body>
+
+</html>
+
+

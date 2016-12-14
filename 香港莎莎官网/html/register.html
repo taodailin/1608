@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/base.min.css" />
+		<link rel="stylesheet" href="../css/styles.min.css" />
+		<link rel="stylesheet" href="../css/styles_https.min.css" />
+		<link rel="stylesheet" href="../css/theme.min.css" />
+		<link rel="stylesheet" href="../css/jquery.idcode.css" />
+
+		<script type="text/javascript" src="../js/jquery-1.12.3.js"></script>
+		<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="../js/register.js"></script>
+		<script src="../js/jquery.idcode.js"></script>
+
+	</head>
+
+	<body class="passport-page">
+		<div class="topbar">
+			<div class="page-rs">
+				<div class="login-bar">
+					<span id="loginBar_435" style="display: block;">
+    <span>
+                欢迎光临莎莎网！
+    </span>
+					<a href="" style="margin-left:10px;">登录</a>
+					<span class="dividing">或</span>
+					<a href="">免费注册</a>
+					</span>
+
+					<span id="memberBar_435" style="display:none">
+    <span>
+        您好！<span id="uname_435"></span>
+					</span>
+					<span class="syew" style="display:none;"><i class="iconfont"></i>VIP </span>
+					<span class="point" style="color:#cb9966;"><b>0</b> 积分</span>
+					<a href="">退出</a>
+					</span>
+
+				</div>
+				<div class="member-link">
+					<ul>
+						<li class="noline">
+							<div class="member-linktext" id="mem_h4_526">
+								<a rel="nofollow" href="">
+									我的账户<i class="iconfont ijt"></i></a>
+							</div>
+
+							<dl id="mem_dl_526">
+								<dd>
+									<a href="" rel="nofollow">我的订单</a>
+								</dd>
+								<dd>
+									<a href="" rel="nofollow">我的积分</a>
+								</dd>
+								<dd>
+									<a href="" rel="nofollow">我的优惠券</a>
+								</dd>
+								<dd>
+									<a href="" rel="nofollow">我的收藏</a>
+								</dd>
+								<dd>
+									<a href="" rel="nofollow">我的评价</a>
+								</dd>
+							</dl>
+
+						</li>
+						<li class="noline">
+							<div id="minicart_530" class="member-linktext">
+								<div class="js_minicart-title tc">
+									<a href=""><i class="iconfont"></i>我的购物车</a>
+								</div>
+								<div class="MiniCarDetail minicart-cont-rs" style="visibility: hidden;">
+									<img class="loading" src="img/login.jpg" height="32" width="32">
+								</div>
+							</div>
+
+						</li>
+						<li class="noline">
+							<div class="member-linktext">
+								<a href="" rel="nofollow">
+									我的收藏
+								</a>
+							</div>
+						</li>
+						<li class="noline">
+							<div class="member-linktext" id="index_mymessage">
+								<a rel="nofollow" href="">我的站內信</a>
+							</div>
+						</li>
+						<li class="noline">
+							<div class="member-linktext">
+								<a href="" type="url" target="_blank" rel="nofollow">积分中心</a>
+							</div>
+						</li>
+						<li class="noline">
+							<div class="member-linktext">
+								<a href="" type="url" target="_blank" rel="nofollow">Global site</a>
+							</div>
+						</li>
+						<li class="noline">
+							<div class="member_attention_2" id="us_h4_531" onmouseleave="hideAllQrCode();">
+								<a rel="nofollow" href="#">关注我们 </a>
+								<a rel="nofollow" class="member_attention_2_item" id="member_attention_2_item_1471405899183" href="" target="_blank" data-tab="1471405899183"><img src="../img/index/chat.png" alt="" height="15" width="17"></a>
+								<a rel="nofollow" class="member_attention_2_item" id="member_attention_2_item_1471408067091" href="" target="_blank" data-tab="1471408067091"><img src="../img/index/weixin.png" alt="" height="14" width="17"></a>
+								<div class="member_attention_2_qr" id="member_attention_2_qr_1471405899183" onmouseenter="keepQrCodeDisplay(this);" onmouseleave="keepQrCodeHide(this);"><img src="" alt="" width="100px" height="100px"></div>
+								<div class="member_attention_2_qr" id="member_attention_2_qr_1471408067091" onmouseenter="keepQrCodeDisplay(this);" onmouseleave="keepQrCodeHide(this);"><img src="" alt="" width="100px" height="100px"></div>
+							</div>
+
+						</li>
+						<li class="noline"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="header-main">
+			<div class="page">
+				<div class="sotelogo">
+					<a href="">
+						<img alt="Ecstore-demo" src="img/login-logo.png" border="0">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page">
+			<div class="signin-page-wrap clb" style="background-image:url(img/login.jpg)">
+				<div class="signup-article fr">
+					<div id="page_signup" class="signupin-content signup">
+						<div class="sign-title">
+							<div class="sign-title-text">
+								注册账号
+								<span class="descrip fr">已有莎莎网帐号？<a href="">立即登录</a></span>
+							</div>
+						</div>
+						<div class="signupbox">
+							<!--<form <!--action="" method="post">-->
+
+								<ul>
+									<li class="form-item">
+										<label for="" class="form-label">
+											<em class="warn">*</em>邮箱/手机：
+										</label>
+										<span class="form-act">
+											<input class="x-input" type="text"  id="username" placeholder="请输入邮箱/手机号，最少5个字符">
+										</span>
+									</li>
+									<li class="form-item">
+										<label for="" class="form-label">
+											<em class="warn">*</em>密码：
+										</label>
+										<span class="form-act">
+											<input class="x-input " type="password"  maxlength="16" placeholder="请输入密码6-16位字母和数字的组合"  id="password"  >
+										</span>
+
+									</li>
+									<li class="form-item">
+										<label for="" class="form-label">
+											<em class="warn">*</em>确认密码：</label>
+										<span class="form-act">
+												<input class="x-input " type="password" name="pam_account[psw_confirm]" id="password2" maxlength="20" placeholder="再次填写密码" >
+										</span>
+									</li>
+									<!--<li class="form-item action-verifycode">
+										<label for="" class="form-label">
+											<em class="warn">*</em>验证码：</label>
+										<span class="form-act">
+        								<input class="x-input verify-input img_input" type="text" name="signupverifycode" placeholder="填写验证码" data-caution="请正确填写验证码"  id="dom_el_8325743" maxlength="4"> 
+        									<img src="" alt="验证码" title="点击更换验证码" class="verify-code auto-change-verify-handle"> <a href="" class="verify-code auto-change-verify-handle lnklike">看不清?换一张</a>      </span>
+									</li>-->
+									<!--<li class="form-item action-need-verify" style="display:none;">
+										<label for="" class="form-label">
+											验证码：
+											
+										</label>
+											<span class="form-act">
+        										<input class="x-input verify-input" type="text" name="vcode" id="dom_el_8325744" placeholder="填写短信验证码" data-caution="请正确填写短信验证码" vtype="required">      
+        										<a href="" class="btn btn-caution action-get-verifycode fr"><span><span>获取短信验证码</span></span>
+												</a>
+											</span>
+									</li>-->
+									<input type="text" id ="Txtidcode" class ="txtVerification"><span id="idcode"></span>
+									<li class="form-item">
+										<label for="" class="form-label"></label>
+										<span class="form-act">
+        									<input type="checkbox" name="license" id="" class="x-check" vtype="onerequired" data-caution="请选择同意" checked="">
+        								<label for="" class="form-sub-label"> 同意 <a href="" class="lnklike" target="_blank">莎莎网使用条款</a> 和 <a href="" class="lnklike" target="_blank">隐私保护政策</a></label>
+       									 <span class="validation-messagebox"></span>
+										</span>
+									</li>
+									<li class="form-item-normal">
+										<label for="" class="form-label"></label>
+
+										<button type="submit" class="btn btn-major btn-big">注册</button>
+
+									</li>
+								</ul>
+							<!--</form>-->
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="theme-footer">
+			<p style="text-align: center;">
+				<font face="Helvetica Neue, Helvetica, Tahoma, Arial, sans-serif"><span style="font-size: 13px; line-height: 20px;"><font color="#999999">© Copyright 2000-2016 Sa Sa dot Com Limited 版权所有。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 莎莎国际控股有限公司成员</font></span></font>
+			</p>
+		</div>
+
+	</body>
+	
+	<script type="text/javascript">
+		$.idcode.setCode(); 
+//		var IsBy = $.idcode.validateCode()  
+	</script>
+
+</html>
